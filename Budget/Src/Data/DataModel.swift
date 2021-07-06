@@ -12,8 +12,8 @@ struct DataModel: Codable {
 
 struct Expense: Codable, Identifiable {
     
-    var id: UUID
-    var title: String
-    var amount: Double
+    var id: UUID = UUID()
     var date: Date
+    var amount: Double
+    var label: String
 }
