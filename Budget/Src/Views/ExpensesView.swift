@@ -8,6 +8,8 @@ struct ExpensesView: View {
     
     @EnvironmentObject var dataStore: DataStore
     
+    @State var editViewIsPresented: Bool = false
+    
     
     private func format(_ date: Date) -> String {
        
@@ -33,7 +35,7 @@ struct ExpensesView: View {
     
     
     var body: some View {
-
+        
         NavigationView {
             
             Group {
@@ -65,6 +67,21 @@ struct ExpensesView: View {
                 }
             }
                 .navigationTitle("Expenses")
+                .navigationBarItems(trailing:
+                    HStack {
+                        Button(action: {
+                            
+                            self.editViewIsPresented = true
+                            
+                        }, label: {
+                            Image(systemName: "plus")
+                        })
+                    }
+                )
+                .sheet(isPresented: self.$editViewIsPresented) {
+                    
+                    AddExpenseView()
+                }
         }
     }
 }

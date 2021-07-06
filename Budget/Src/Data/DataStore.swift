@@ -18,6 +18,13 @@ class DataStore: ObservableObject {
     func persistDataModelToStorage() {
         
     }
+    
+    
+    public func save(_ expense: Expense) {
+        
+        self.dataModel?.expenses.append(expense)
+        self.persistDataModelToStorage()
+    }
 }
 
 

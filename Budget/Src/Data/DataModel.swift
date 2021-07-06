@@ -22,9 +22,18 @@ struct Expense: Codable, Identifiable {
     var direction: Direction { amount < 0 ? .goingOut : .comingIn }
     var isGoingOut: Bool { direction == .goingOut }
     
-    enum Direction {
+    enum Direction: CaseIterable, CustomStringConvertible {
         
         case comingIn
         case goingOut
+        
+        var description: String {
+            switch self {
+            case .comingIn:
+                return "in"
+            case .goingOut:
+                return "out"
+            }
+        }
     }
 }
