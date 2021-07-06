@@ -23,6 +23,12 @@ let preview_dataModel_default = DataModel(expenses: [
         date: Calendar(identifier: .iso8601).date(from: DateComponents(year: 2021, month: 7, day: 6))!,
         amount: -10.99,
         label: "test3"
+    ),
+    
+    Expense(
+        date: Calendar(identifier: .iso8601).date(from: DateComponents(year: 2021, month: 7, day: 6))!,
+        amount: -10.99,
+        label: ""
     )
 ])
 

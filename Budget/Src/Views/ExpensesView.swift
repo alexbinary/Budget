@@ -54,8 +54,10 @@ struct ExpensesView: View {
                                 VStack(alignment: .leading) {
                                     Text(format(expense.date))
                                         .font(.callout)
-                                    Text(expense.label)
+                                    Text(expense.label.isEmpty ? "no description" : expense.label)
                                         .font(.caption)
+                                        .italic(expense.label.isEmpty)
+                                        .foregroundColor(expense.label.isEmpty ? .secondary : .primary)
                                 }
                                 Spacer()
                                 Text(format(currency: expense.amount))
@@ -83,6 +85,19 @@ struct ExpensesView: View {
                     AddExpenseView()
                 }
         }
+    }
+}
+
+
+
+extension Text {
+    
+    
+    func italic(_ active: Bool) -> Text {
+        
+        guard active else { return self }
+        
+        return italic()
     }
 }
 
