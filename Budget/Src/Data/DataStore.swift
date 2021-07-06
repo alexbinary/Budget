@@ -39,7 +39,7 @@ class FileDataStore: DataStore {
         
         self.fileName = fileName
         super.init()
-        self.dataModel = self.loadDataModelFromStorage()
+        self.dataModel = self.loadDataModelFromStorage() ?? DataModel()
     }
     
     
