@@ -50,20 +50,25 @@ struct ExpensesView: View {
                     List {
                         ForEach(expenses) { expense in
                             
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(format(expense.date))
-                                        .font(.callout)
-                                    Text(expense.label.isEmpty ? "no description" : expense.label)
-                                        .font(.caption)
-                                        .italic(expense.label.isEmpty)
-                                        .foregroundColor(expense.label.isEmpty ? .secondary : .primary)
+                            NavigationLink(
+                                destination: EditExpenseView(expenseViewModel: EditExpenseView.ExpenseViewModel(from: expense)),
+                                label: {
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            Text(format(expense.date))
+                                                .font(.callout)
+                                            Text(expense.label.isEmpty ? "no description" : expense.label)
+                                                .font(.caption)
+                                                .italic(expense.label.isEmpty)
+                                                .foregroundColor(expense.label.isEmpty ? .secondary : .primary)
+                                        }
+                                        Spacer()
+                                        Text(format(currency: expense.amount))
+                                            .font(.headline)
+                                            .foregroundColor(expense.isGoingOut ? .red : .green)
+                                    }
                                 }
-                                Spacer()
-                                Text(format(currency: expense.amount))
-                                    .font(.headline)
-                                    .foregroundColor(expense.isGoingOut ? .red : .green)
-                            }
+                            )
                         }
                     }
                 }

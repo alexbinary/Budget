@@ -22,7 +22,15 @@ class DataStore: ObservableObject {
     
     public func save(_ expense: Expense) {
         
-        self.dataModel?.expenses.append(expense)
+        if let idx = self.dataModel!.expenses.firstIndex(where: { $0.id == expense.id }) {
+            
+            self.dataModel!.expenses[idx] = expense
+            
+        } else {
+            
+            self.dataModel!.expenses.append(expense)
+        }
+        
         self.persistDataModelToStorage()
     }
 }

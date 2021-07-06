@@ -3,33 +3,43 @@ import SwiftUI
 
 
 
-struct ExpenseViewModel {
+struct EditExpenseView: View {
 
-    var date: Date = Date()
-    var amount: Double = 0.0
-    var direction: Expense.Direction = .goingOut
-    var label: String = ""
     
-    var expense: Expense {
-        Expense(
-            date: date,
-            amount: amount * (direction == .goingOut ? -1 : +1),
-            label: label
-        )
+    struct ExpenseViewModel {
+        
+        init(from expense: Expense) {
+            
+            self.id = expense.id
+            self.date = expense.date
+            self.amount = "\(abs(expense.amount))"
+            self.direction = expense.direction
+            self.label = expense.label
+        }
+
+        var id: UUID = UUID()
+        var date: Date = Date()
+        var amount: String = ""
+        var direction: Expense.Direction = .goingOut
+        var label: String = ""
+        
+        var expense: Expense {
+            Expense(
+                id: id,
+                date: date,
+                amount: Double(amount)! * (direction == .goingOut ? -1 : +1),
+                label: label
+            )
+        }
     }
-}
-
-
-
-struct AddExpenseView: View {
-
+    
     
     @EnvironmentObject var dataStore: DataStore
     
-    @State var expenseViewModel: ExpenseViewModel = ExpenseViewModel()
+    @State var expenseViewModel: ExpenseViewModel
     
     @Environment(\.presentationMode) var presentationMode
-    
+
     
     var body: some View {
 
@@ -38,14 +48,15 @@ struct AddExpenseView: View {
             Form {
                 DatePicker("Date", selection: $expenseViewModel.date)
                 TextField("Label", text: $expenseViewModel.label)
-//                TextField("Amount", text: $expenseViewModel.amount)
-//                Picker("Direction", selection: $expenseViewModel.direction) {
-//                    ForEach(Expense.Direction.allCases) { dir in
-//                        Text(dir)
-//                    }
-//                }
+                TextField("Amount", text: $expenseViewModel.amount)
+                    .keyboardType(.numberPad)
+                Picker("Direction", selection: $expenseViewModel.direction) {
+                    ForEach(Expense.Direction.allCases, id: \.self) { dir in
+                        Text(dir.description)
+                    }
+                }
             }
-                .navigationTitle("Add expense")
+                .navigationTitle("Edit expense")
                 .navigationBarItems(trailing:
                     HStack {
                         Button(action: {
@@ -68,6 +79,6 @@ struct EditExpenseView_Previews: PreviewProvider {
 
     static var previews: some View {
 
-        AddExpenseView()
+        EditExpenseView(expenseViewModel: EditExpenseView.ExpenseViewModel(from: preview_dataModel_default.expenses.first!))
     }
 }

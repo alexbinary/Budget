@@ -3,26 +3,25 @@ import SwiftUI
 
 
 
-struct ExpenseViewModel {
-
-    var date: Date = Date()
-    var amount: String = ""
-    var direction: Expense.Direction = .goingOut
-    var label: String = ""
-    
-    var expense: Expense {
-        Expense(
-            date: date,
-            amount: Double(amount)! * (direction == .goingOut ? -1 : +1),
-            label: label
-        )
-    }
-}
-
-
-
 struct AddExpenseView: View {
 
+    
+    struct ExpenseViewModel {
+
+        var date: Date = Date()
+        var amount: String = ""
+        var direction: Expense.Direction = .goingOut
+        var label: String = ""
+        
+        var expense: Expense {
+            Expense(
+                date: date,
+                amount: Double(amount)! * (direction == .goingOut ? -1 : +1),
+                label: label
+            )
+        }
+    }
+    
     
     @EnvironmentObject var dataStore: DataStore
     
