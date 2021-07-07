@@ -3,15 +3,17 @@ import Foundation
 
 
 
-struct DataModel: Codable {
-    
-    var expenses: [Expense] = []
-}
-
-
-
 struct Expense: Codable, Identifiable {
 
+    
+    var id: UUID
+    var date: Date
+    var amount: Double
+    var label: String
+    
+    var direction: Direction { amount < 0 ? .goingOut : .comingIn }
+    var isGoingOut: Bool { direction == .goingOut }
+    
     
     init(id: UUID? = nil, date: Date, amount: Double, label: String? = nil) {
         
@@ -21,15 +23,6 @@ struct Expense: Codable, Identifiable {
         self.label = label ?? ""
     }
     
-    
-    var id: UUID
-    var date: Date
-    var amount: Double
-    var label: String
-    
-    
-    var direction: Direction { amount < 0 ? .goingOut : .comingIn }
-    var isGoingOut: Bool { direction == .goingOut }
     
     enum Direction: CaseIterable, CustomStringConvertible {
         
