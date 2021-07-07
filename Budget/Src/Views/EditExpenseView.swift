@@ -28,7 +28,7 @@ struct EditExpenseView: View {
                 }
             }
         }
-            .navigationTitle("Edit expense")
+        .navigationTitle(expenseId == nil ? "New expense" : expenseViewModel.label.isEmpty ? "Edit expense" : expenseViewModel.label)
             .navigationBarItems(trailing:
                 HStack {
                     Button(action: {
