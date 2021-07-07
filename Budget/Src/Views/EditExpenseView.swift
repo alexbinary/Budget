@@ -27,14 +27,19 @@ struct EditExpenseView: View {
     var body: some View {
 
         Form {
-            DatePicker("Date", selection: $expenseViewModel.date)
-            TextField("Label", text: $expenseViewModel.label)
-            TextField("Amount", text: $expenseViewModel.amount)
-                .keyboardType(.decimalPad)
-            Picker("Direction", selection: $expenseViewModel.direction) {
-                ForEach(ExpenseDirection.allCases, id: \.self) { dir in
-                    Text(dir.description)
+            Section {
+                TextField("Amount", text: $expenseViewModel.amount)
+                    .keyboardType(.decimalPad)
+                    .font(.custom("", size: 42))
+                Picker("Direction", selection: $expenseViewModel.direction) {
+                    ForEach(ExpenseDirection.allCases, id: \.self) { dir in
+                        Text(dir.description)
+                    }
                 }
+            }
+            Section {
+                TextField("Label", text: $expenseViewModel.label)
+                DatePicker("Date", selection: $expenseViewModel.date)
             }
         }
         .navigationTitle(mode == .add ? "New expense" : expenseViewModel.label.isEmpty ? "Edit expense" : expenseViewModel.label)
