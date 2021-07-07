@@ -90,7 +90,10 @@ struct ExpensesView: View {
                 )
                 .sheet(isPresented: self.$editViewIsPresented) {
                     
-                    AddExpenseView()
+                    EditExpenseView(
+                        expenseId: nil,
+                        expenseViewModel: EditExpenseView.ExpenseViewModel.empty
+                    )
                 }
         }
     }

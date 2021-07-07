@@ -8,6 +8,11 @@ struct EditExpenseView: View {
     
     struct ExpenseViewModel {
         
+        static var empty = ExpenseViewModel()
+        
+        init() {
+        }
+        
         init(from expense: Expense) {
             
             self.date = expense.date
@@ -21,12 +26,12 @@ struct EditExpenseView: View {
         var direction: Expense.Direction = .goingOut
         var label: String = ""
         
-        func expense(withId id: UUID) -> Expense {
+        func expense(withId id: UUID?) -> Expense {
             Expense(
                 id: id,
                 date: date,
                 amount: Double(amount)! * (direction == .goingOut ? -1 : +1),
-                label: label
+                label: label.isEmpty ? nil : label
             )
         }
     }
@@ -34,7 +39,7 @@ struct EditExpenseView: View {
     
     @EnvironmentObject var dataStore: DataStore
     
-    let expenseId: UUID
+    let expenseId: UUID?
     
     @State var expenseViewModel: ExpenseViewModel
     

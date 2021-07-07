@@ -13,7 +13,16 @@ struct DataModel: Codable {
 struct Expense: Codable, Identifiable {
 
     
-    var id: UUID = UUID()
+    init(id: UUID? = nil, date: Date, amount: Double, label: String? = nil) {
+        
+        self.id = id ?? UUID()
+        self.date = date
+        self.amount = amount
+        self.label = label ?? ""
+    }
+    
+    
+    var id: UUID
     var date: Date
     var amount: Double
     var label: String
