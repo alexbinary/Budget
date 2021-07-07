@@ -36,6 +36,7 @@ struct EditExpenseView: View {
                         Text(dir.description)
                     }
                 }
+                    .pickerStyle(SegmentedPickerStyle())
             }
             Section {
                 TextField("Label", text: $expenseViewModel.label)
