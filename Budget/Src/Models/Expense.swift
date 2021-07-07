@@ -11,7 +11,7 @@ struct Expense: Codable, Identifiable {
     var amount: Double
     var label: String
     
-    var direction: Direction { amount < 0 ? .goingOut : .comingIn }
+    var direction: ExpenseDirection { amount < 0 ? .goingOut : .comingIn }
     var isGoingOut: Bool { direction == .goingOut }
     
     
@@ -22,20 +22,26 @@ struct Expense: Codable, Identifiable {
         self.amount = amount
         self.label = label ?? ""
     }
+}
+
+
+
+enum ExpenseDirection: CaseIterable, CustomStringConvertible {
+ 
+    
+    case comingIn
+    case goingOut
     
     
-    enum Direction: CaseIterable, CustomStringConvertible {
+    var description: String {
         
-        case comingIn
-        case goingOut
+        switch self {
         
-        var description: String {
-            switch self {
-            case .comingIn:
-                return "in"
-            case .goingOut:
-                return "out"
-            }
+        case .comingIn:
+            return "in"
+            
+        case .goingOut:
+            return "out"
         }
     }
 }

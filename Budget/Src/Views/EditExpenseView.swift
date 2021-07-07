@@ -10,7 +10,7 @@ struct EditExpenseView: View {
     
     let expenseId: UUID?
     
-    @State var expenseViewModel: ExpenseViewModel
+    @State var expenseViewModel: EditExpenseViewModel
     
     @Environment(\.presentationMode) var presentationMode
 
@@ -25,7 +25,7 @@ struct EditExpenseView: View {
                 TextField("Amount", text: $expenseViewModel.amount)
                     .keyboardType(.numberPad)
                 Picker("Direction", selection: $expenseViewModel.direction) {
-                    ForEach(Expense.Direction.allCases, id: \.self) { dir in
+                    ForEach(ExpenseDirection.allCases, id: \.self) { dir in
                         Text(dir.description)
                     }
                 }
@@ -56,7 +56,7 @@ struct EditExpenseView_Previews: PreviewProvider {
         let preview_expense = preview_dataModel_default.expenses.first!
         EditExpenseView(
             expenseId: preview_expense.id,
-            expenseViewModel: ExpenseViewModel(from: preview_expense)
+            expenseViewModel: EditExpenseViewModel(from: preview_expense)
         )
     }
 }

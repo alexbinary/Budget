@@ -8,7 +8,7 @@ struct EditExpenseViewModel {
     
     var date: Date = Date()
     var amount: String = ""
-    var direction: Expense.Direction = .goingOut
+    var direction: ExpenseDirection = .goingOut
     var label: String = ""
     
     

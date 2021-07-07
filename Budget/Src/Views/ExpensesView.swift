@@ -48,27 +48,30 @@ struct ExpensesView: View {
                 } else {
                     
                     List {
+                        
                         ForEach(expenses) { expense in
+                            
+                            let expenseViewModel = ShowExpenseViewModel(from: expense)
                             
                             NavigationLink(
                                 destination: EditExpenseView(
                                     expenseId: expense.id,
-                                    expenseViewModel: ExpenseViewModel(from: expense)
+                                    expenseViewModel: EditExpenseViewModel(from: expense)
                                 ),
                                 label: {
                                     HStack {
                                         VStack(alignment: .leading) {
-                                            Text(format(expense.date))
+                                            Text(format(expenseViewModel.date))
                                                 .font(.callout)
-                                            Text(expense.label.isEmpty ? "no description" : expense.label)
+                                            Text(expenseViewModel.label.isEmpty ? "no description" : expenseViewModel.label)
                                                 .font(.caption)
-                                                .italic(expense.label.isEmpty)
-                                                .foregroundColor(expense.label.isEmpty ? .secondary : .primary)
+                                                .italic(expenseViewModel.label.isEmpty)
+                                                .foregroundColor(expenseViewModel.label.isEmpty ? .secondary : .primary)
                                         }
                                         Spacer()
-                                        Text(format(currency: expense.amount))
+                                        Text(format(currency: expenseViewModel.amount))
                                             .font(.headline)
-                                            .foregroundColor(expense.isGoingOut ? .red : .green)
+                                            .foregroundColor(expenseViewModel.isGoingOut ? .red : .green)
                                     }
                                 }
                             )
@@ -92,7 +95,7 @@ struct ExpensesView: View {
                     
                     EditExpenseView(
                         expenseId: nil,
-                        expenseViewModel: ExpenseViewModel.empty
+                        expenseViewModel: EditExpenseViewModel.empty
                     )
                 }
         }
