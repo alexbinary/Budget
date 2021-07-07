@@ -28,13 +28,21 @@ struct EditExpenseViewModel {
     }
 
     
-    func expense(withId id: UUID?) -> Expense {
+    func expense(withId id: UUID?) throws -> Expense {
         
-        Expense(
+        guard let amountNumeric = Double(amount) else {
+            throw "\"\(amount)\" could not be parsed as a number"
+        }
+        
+        return Expense(
             id: id,
             date: date,
-            amount: Double(amount)! * (direction == .goingOut ? -1 : +1),
+            amount: amountNumeric * (direction == .goingOut ? -1 : +1),
             label: label.isEmpty ? nil : label
         )
     }
 }
+
+
+
+extension String: Error {}

@@ -50,8 +50,12 @@ struct EditExpenseView: View {
                 HStack {
                     Button(action: {
                         
-                        self.dataStore.save(self.expenseViewModel.expense(withId: expenseId))
-                        self.presentationMode.wrappedValue.dismiss()
+                        do {
+                            self.dataStore.save(try self.expenseViewModel.expense(withId: expenseId))
+                            self.presentationMode.wrappedValue.dismiss()
+                        } catch {
+                            
+                        }
                         
                     }, label: {
                         Text("Done")
