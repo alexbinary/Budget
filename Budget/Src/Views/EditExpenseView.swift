@@ -4,37 +4,6 @@ import SwiftUI
 
 
 struct EditExpenseView: View {
-
-    
-    struct ExpenseViewModel {
-        
-        static var empty = ExpenseViewModel()
-        
-        init() {
-        }
-        
-        init(from expense: Expense) {
-            
-            self.date = expense.date
-            self.amount = "\(abs(expense.amount))"
-            self.direction = expense.direction
-            self.label = expense.label
-        }
-
-        var date: Date = Date()
-        var amount: String = ""
-        var direction: Expense.Direction = .goingOut
-        var label: String = ""
-        
-        func expense(withId id: UUID?) -> Expense {
-            Expense(
-                id: id,
-                date: date,
-                amount: Double(amount)! * (direction == .goingOut ? -1 : +1),
-                label: label.isEmpty ? nil : label
-            )
-        }
-    }
     
     
     @EnvironmentObject var dataStore: DataStore
@@ -87,7 +56,7 @@ struct EditExpenseView_Previews: PreviewProvider {
         let preview_expense = preview_dataModel_default.expenses.first!
         EditExpenseView(
             expenseId: preview_expense.id,
-            expenseViewModel: EditExpenseView.ExpenseViewModel(from: preview_expense)
+            expenseViewModel: ExpenseViewModel(from: preview_expense)
         )
     }
 }

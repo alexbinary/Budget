@@ -53,7 +53,7 @@ struct ExpensesView: View {
                             NavigationLink(
                                 destination: EditExpenseView(
                                     expenseId: expense.id,
-                                    expenseViewModel: EditExpenseView.ExpenseViewModel(from: expense)
+                                    expenseViewModel: ExpenseViewModel(from: expense)
                                 ),
                                 label: {
                                     HStack {
@@ -92,7 +92,7 @@ struct ExpensesView: View {
                     
                     EditExpenseView(
                         expenseId: nil,
-                        expenseViewModel: EditExpenseView.ExpenseViewModel.empty
+                        expenseViewModel: ExpenseViewModel.empty
                     )
                 }
         }
