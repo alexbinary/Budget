@@ -49,7 +49,7 @@ struct ExpensesView: View {
                     
                     List {
                         
-                        ForEach(expenses) { expense in
+                        ForEach(expenses.sorted(by: { $0.date > $1.date })) { expense in
                             
                             let expenseViewModel = ShowExpenseViewModel(from: expense)
                             
