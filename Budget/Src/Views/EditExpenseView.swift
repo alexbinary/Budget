@@ -29,7 +29,17 @@ struct EditExpenseView: View {
             }
         }
         .navigationTitle(expenseId == nil ? "New expense" : expenseViewModel.label.isEmpty ? "Edit expense" : expenseViewModel.label)
-            .navigationBarItems(trailing:
+        .navigationBarItems(
+            leading:
+                expenseId == nil ? HStack {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Cancel")
+                            .fontWeight(.regular)
+                    })
+            } : nil,
+            trailing:
                 HStack {
                     Button(action: {
                         
@@ -40,7 +50,7 @@ struct EditExpenseView: View {
                         Text("Done")
                     })
                 }
-            )
+        )
     }
 }
 
@@ -50,10 +60,27 @@ struct EditExpenseView_Previews: PreviewProvider {
 
     static var previews: some View {
 
-        let preview_expense = preview_dataModel_default.expenses.first!
-        EditExpenseView(
-            expenseId: preview_expense.id,
-            expenseViewModel: EditExpenseViewModel(from: preview_expense)
-        )
+        Group {
+        
+            NavigationView {
+                
+                EditExpenseView(
+                    expenseId: nil,
+                    expenseViewModel: EditExpenseViewModel.empty
+                )
+            }
+            .previewDisplayName("Creation mode")
+            
+            NavigationView {
+                
+                let preview_expense = preview_dataModel_default.expenses.first!
+                
+                EditExpenseView(
+                    expenseId: preview_expense.id,
+                    expenseViewModel: EditExpenseViewModel(from: preview_expense)
+                )
+            }
+            .previewDisplayName("Edit mode")
+        }
     }
 }
