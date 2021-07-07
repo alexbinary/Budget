@@ -23,7 +23,7 @@ struct EditExpenseView: View {
                 DatePicker("Date", selection: $expenseViewModel.date)
                 TextField("Label", text: $expenseViewModel.label)
                 TextField("Amount", text: $expenseViewModel.amount)
-                    .keyboardType(.numberPad)
+                    .keyboardType(.decimalPad)
                 Picker("Direction", selection: $expenseViewModel.direction) {
                     ForEach(ExpenseDirection.allCases, id: \.self) { dir in
                         Text(dir.description)
