@@ -10,6 +10,13 @@ struct EditExpenseView: View {
     
     let expenseId: UUID?
     
+    var mode: Mode { expenseId == nil ? .add : .edit }
+    
+    enum Mode {
+        case add
+        case edit
+    }
+    
     @State var expenseViewModel: EditExpenseViewModel
     
     @Environment(\.presentationMode) var presentationMode
@@ -28,10 +35,10 @@ struct EditExpenseView: View {
                 }
             }
         }
-        .navigationTitle(expenseId == nil ? "New expense" : expenseViewModel.label.isEmpty ? "Edit expense" : expenseViewModel.label)
+        .navigationTitle(mode == .add ? "New expense" : expenseViewModel.label.isEmpty ? "Edit expense" : expenseViewModel.label)
         .navigationBarItems(
             leading:
-                expenseId == nil ? HStack {
+                mode == .add ? HStack {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
