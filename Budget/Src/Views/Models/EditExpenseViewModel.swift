@@ -24,7 +24,7 @@ struct EditExpenseViewModel {
         self.date = expense.date
         self.amount = "\(abs(expense.amount))"
         self.direction = expense.direction
-        self.label = expense.label
+        self.label = expense.label ?? ""
     }
 
     

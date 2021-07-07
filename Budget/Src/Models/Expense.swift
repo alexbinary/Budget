@@ -9,7 +9,7 @@ struct Expense: Codable, Identifiable {
     var id: UUID
     var date: Date
     var amount: Double
-    var label: String
+    var label: String?
     
     var direction: ExpenseDirection { amount < 0 ? .goingOut : .comingIn }
     var isGoingOut: Bool { direction == .goingOut }
@@ -20,7 +20,7 @@ struct Expense: Codable, Identifiable {
         self.id = id ?? UUID()
         self.date = date
         self.amount = amount
-        self.label = label ?? ""
+        self.label = label
     }
 }
 

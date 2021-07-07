@@ -18,6 +18,6 @@ struct ShowExpenseViewModel {
         
         self.date = expense.date
         self.amount = expense.amount
-        self.label = expense.label
+        self.label = expense.label ?? ""
     }
 }
