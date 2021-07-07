@@ -14,6 +14,12 @@ struct MainView: View {
                     Image(systemName: "list.dash")
                     Text("Expenses")
                 }
+            
+            CategoriesView()
+                .tabItem {
+                    Image(systemName: "list.dash")
+                    Text("Categories")
+                }
         }
     }
 }
