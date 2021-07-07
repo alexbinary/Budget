@@ -10,20 +10,18 @@ struct EditExpenseView: View {
         
         init(from expense: Expense) {
             
-            self.id = expense.id
             self.date = expense.date
             self.amount = "\(abs(expense.amount))"
             self.direction = expense.direction
             self.label = expense.label
         }
 
-        var id: UUID = UUID()
         var date: Date = Date()
         var amount: String = ""
         var direction: Expense.Direction = .goingOut
         var label: String = ""
         
-        var expense: Expense {
+        func expense(withId id: UUID) -> Expense {
             Expense(
                 id: id,
                 date: date,
@@ -35,6 +33,8 @@ struct EditExpenseView: View {
     
     
     @EnvironmentObject var dataStore: DataStore
+    
+    let expenseId: UUID
     
     @State var expenseViewModel: ExpenseViewModel
     
@@ -61,7 +61,7 @@ struct EditExpenseView: View {
                     HStack {
                         Button(action: {
                             
-                            self.dataStore.save(self.expenseViewModel.expense)
+                            self.dataStore.save(self.expenseViewModel.expense(withId: expenseId))
                             self.presentationMode.wrappedValue.dismiss()
                             
                         }, label: {
@@ -79,6 +79,10 @@ struct EditExpenseView_Previews: PreviewProvider {
 
     static var previews: some View {
 
-        EditExpenseView(expenseViewModel: EditExpenseView.ExpenseViewModel(from: preview_dataModel_default.expenses.first!))
+        let preview_expense = preview_dataModel_default.expenses.first!
+        EditExpenseView(
+            expenseId: preview_expense.id,
+            expenseViewModel: EditExpenseView.ExpenseViewModel(from: preview_expense)
+        )
     }
 }

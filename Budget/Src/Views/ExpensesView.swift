@@ -51,7 +51,10 @@ struct ExpensesView: View {
                         ForEach(expenses) { expense in
                             
                             NavigationLink(
-                                destination: EditExpenseView(expenseViewModel: EditExpenseView.ExpenseViewModel(from: expense)),
+                                destination: EditExpenseView(
+                                    expenseId: expense.id,
+                                    expenseViewModel: EditExpenseView.ExpenseViewModel(from: expense)
+                                ),
                                 label: {
                                     HStack {
                                         VStack(alignment: .leading) {
