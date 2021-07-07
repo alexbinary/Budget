@@ -20,6 +20,8 @@ struct EditExpenseView: View {
     @State var expenseViewModel: EditExpenseViewModel
     
     @Environment(\.presentationMode) var presentationMode
+    
+    @State var invalidAmountAlertIsPresented = false
 
     
     var body: some View {
@@ -54,7 +56,7 @@ struct EditExpenseView: View {
                             self.dataStore.save(try self.expenseViewModel.expense(withId: expenseId))
                             self.presentationMode.wrappedValue.dismiss()
                         } catch {
-                            
+                            self.invalidAmountAlertIsPresented = true
                         }
                         
                     }, label: {
@@ -62,6 +64,9 @@ struct EditExpenseView: View {
                     })
                 }
         )
+        .alert(isPresented: $invalidAmountAlertIsPresented) {
+            Alert(title: Text("Invalid amount"))
+        }
     }
 }
 
