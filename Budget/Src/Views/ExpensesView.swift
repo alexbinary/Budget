@@ -98,10 +98,12 @@ struct ExpensesView: View {
                 )
                 .sheet(isPresented: self.$editViewIsPresented) {
                     
-                    EditExpenseView(
-                        expenseId: nil,
-                        expenseViewModel: EditExpenseViewModel.empty
-                    )
+                    NavigationView {
+                        EditExpenseView(
+                            expenseId: nil,
+                            expenseViewModel: EditExpenseViewModel.empty
+                        )
+                    }
                 }
         }
     }
