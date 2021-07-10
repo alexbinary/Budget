@@ -35,7 +35,20 @@ struct BudgetsView: View {
                                     budgetViewModel: EditBudgetViewModel(from: budget)
                                 ),
                                 label: {
-                                    Text(budget.name)
+                                    HStack {
+                                        Text(budget.name)
+                                        Spacer()
+                                        
+                                        if let amount = budget.amount {
+                                            Text(Formatter.format(currency: amount))
+                                                .font(.headline)
+                                        } else {
+                                            Text("no amount")
+                                                .font(.caption)
+                                                .italic()
+                                                .foregroundColor(.secondary)
+                                        }
+                                    }
                                 }
                             )
                         }

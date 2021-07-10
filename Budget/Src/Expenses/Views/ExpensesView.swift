@@ -22,18 +22,6 @@ struct ExpensesView: View {
     }
     
     
-    private func format(currency number: Double) -> String {
-
-        let formatter = NumberFormatter()
-
-        formatter.numberStyle = .currency
-        formatter.currencyCode = "EUR"
-        formatter.maximumFractionDigits = 2
-
-        return formatter.string(from: NSNumber(value: abs(number)))!
-    }
-    
-    
     var body: some View {
         
         NavigationView {
@@ -70,7 +58,7 @@ struct ExpensesView: View {
                                                 .foregroundColor(expenseViewModel.label.isEmpty ? .secondary : .primary)
                                         }
                                         Spacer()
-                                        Text(format(currency: expenseViewModel.amount))
+                                        Text(Formatter.format(currency: expenseViewModel.amount))
                                             .font(.headline)
                                             .foregroundColor(expenseViewModel.isGoingOut ? .red : .green)
                                     }

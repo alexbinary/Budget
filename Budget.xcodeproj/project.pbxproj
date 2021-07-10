@@ -26,6 +26,7 @@
 		29ADDEB82694D3D300F509FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29ADDEB72694D3D300F509FD /* Preview Assets.xcassets */; };
 		29ADDEC62694D47900F509FD /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEC52694D47900F509FD /* DataStore.swift */; };
 		29ADDECA2694D49400F509FD /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEC92694D49400F509FD /* DataModel.swift */; };
+		29DC04B2269A2912004201C4 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC04B1269A2912004201C4 /* Formatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		29ADDEB92694D3D300F509FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29ADDEC52694D47900F509FD /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		29ADDEC92694D49400F509FD /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		29DC04B1269A2912004201C4 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				29ADDEC82694D48200F509FD /* Data */,
+				29DC04B4269A291F004201C4 /* Services */,
 				296835A02695A7C600DA0337 /* Models */,
 				29ADDECF2694D4B600F509FD /* Views */,
 			);
@@ -216,6 +219,14 @@
 				29ADDEB22694D3D200F509FD /* MainView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		29DC04B4269A291F004201C4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				29DC04B1269A2912004201C4 /* Formatter.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 				2968359D2695A74100DA0337 /* EditExpenseViewModel.swift in Sources */,
 				296835A72695A95D00DA0337 /* ShowExpenseViewModel.swift in Sources */,
 				299E0F57269A179500BF7AD4 /* EditBudgetView.swift in Sources */,
+				29DC04B2269A2912004201C4 /* Formatter.swift in Sources */,
 				29ADDEB32694D3D200F509FD /* MainView.swift in Sources */,
 				293062B12694DCBF0086C5F7 /* data.swift in Sources */,
 				29474E432694FFA000AE0A5A /* EditExpenseView.swift in Sources */,

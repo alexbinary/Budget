@@ -21,12 +21,19 @@ struct EditBudgetView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @State var invalidAmountAlertIsPresented = false
+    
     
     var body: some View {
 
         Form {
             Section {
                 TextField("Name", text: $budgetViewModel.name)
+            }
+            Section {
+                TextField("Amount", text: $budgetViewModel.amount)
+                    .keyboardType(.decimalPad)
+                    .font(.custom("", size: 42))
             }
         }
             .navigationTitle(mode == .add ? "New budget" : budgetViewModel.name.isEmpty ? "Edit budget" : budgetViewModel.name)
@@ -44,14 +51,21 @@ struct EditBudgetView: View {
                     HStack {
                         Button(action: {
                             
-                            self.dataStore.save(self.budgetViewModel.budget(withId: self.budgetId))
-                            self.presentationMode.wrappedValue.dismiss()
+                            do {
+                                self.dataStore.save(try self.budgetViewModel.budget(withId: self.budgetId))
+                                self.presentationMode.wrappedValue.dismiss()
+                            } catch {
+                                self.invalidAmountAlertIsPresented = true
+                            }
                             
                         }, label: {
                             Text("Done")
                         })
                     }
             )
+            .alert(isPresented: $invalidAmountAlertIsPresented) {
+                Alert(title: Text("Invalid amount"))
+            }
     }
 }
 

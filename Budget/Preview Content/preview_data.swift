@@ -39,9 +39,9 @@ let preview_dataModel_default = DataModel(
     
     budgets: [
     
-        Budget(id: UUID(), name: "Budget 1"),
-        Budget(id: UUID(), name: "Budget 2"),
-        Budget(id: UUID(), name: "Budget 3")
+        Budget(id: UUID(), name: "Budget 1", amount: 50),
+        Budget(id: UUID(), name: "Budget 2", amount: nil),
+        Budget(id: UUID(), name: "Budget 3", amount: 200)
     ]
 )
 
