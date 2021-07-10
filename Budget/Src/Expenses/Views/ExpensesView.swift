@@ -78,7 +78,7 @@ struct ExpensesView: View {
                         }
                         .onDelete { indexSet in
                          
-                            self.dataStore.removeExpense(atOffsets: indexSet)
+                            self.dataStore.removeExpenses(atOffsets: indexSet)
                         }
                     }
                 }

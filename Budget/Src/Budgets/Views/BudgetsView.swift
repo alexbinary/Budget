@@ -40,7 +40,7 @@ struct BudgetsView: View {
                         }
                         .onDelete { indexSet in
                          
-                            self.dataStore.removeBudget(atOffsets: indexSet)
+                            self.dataStore.removeBudgets(atOffsets: indexSet)
                         }
                     }
                 }
