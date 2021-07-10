@@ -17,6 +17,8 @@
 		296835A72695A95D00DA0337 /* ShowExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296835A62695A95D00DA0337 /* ShowExpenseViewModel.swift */; };
 		296835AB2695B64F00DA0337 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296835AA2695B64F00DA0337 /* Budget.swift */; };
 		296835AE2695B72100DA0337 /* BudgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296835AD2695B72100DA0337 /* BudgetsView.swift */; };
+		299E0F57269A179500BF7AD4 /* EditBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299E0F56269A179500BF7AD4 /* EditBudgetView.swift */; };
+		299E0F5B269A17DE00BF7AD4 /* EditBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299E0F5A269A17DE00BF7AD4 /* EditBudgetViewModel.swift */; };
 		29ADDEAD2694D3D200F509FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEAC2694D3D200F509FD /* AppDelegate.swift */; };
 		29ADDEAF2694D3D200F509FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEAE2694D3D200F509FD /* SceneDelegate.swift */; };
 		29ADDEB32694D3D200F509FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEB22694D3D200F509FD /* MainView.swift */; };
@@ -37,6 +39,8 @@
 		296835A62695A95D00DA0337 /* ShowExpenseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowExpenseViewModel.swift; sourceTree = "<group>"; };
 		296835AA2695B64F00DA0337 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		296835AD2695B72100DA0337 /* BudgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsView.swift; sourceTree = "<group>"; };
+		299E0F56269A179500BF7AD4 /* EditBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBudgetView.swift; sourceTree = "<group>"; };
+		299E0F5A269A17DE00BF7AD4 /* EditBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBudgetViewModel.swift; sourceTree = "<group>"; };
 		29ADDEA92694D3D200F509FD /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29ADDEAC2694D3D200F509FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29ADDEAE2694D3D200F509FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				299E0F52269A170400BF7AD4 /* Models */,
+				299E0F59269A17C700BF7AD4 /* ViewModels */,
 				299E0F53269A171400BF7AD4 /* Views */,
 			);
 			path = Budgets;
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				296835AD2695B72100DA0337 /* BudgetsView.swift */,
+				299E0F56269A179500BF7AD4 /* EditBudgetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,6 +142,14 @@
 				29ADDECF2694D4B600F509FD /* Views */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		299E0F59269A17C700BF7AD4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				299E0F5A269A17DE00BF7AD4 /* EditBudgetViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		29ADDEA02694D3D200F509FD = {
@@ -284,10 +298,12 @@
 				296835AE2695B72100DA0337 /* BudgetsView.swift in Sources */,
 				2968359D2695A74100DA0337 /* EditExpenseViewModel.swift in Sources */,
 				296835A72695A95D00DA0337 /* ShowExpenseViewModel.swift in Sources */,
+				299E0F57269A179500BF7AD4 /* EditBudgetView.swift in Sources */,
 				29ADDEB32694D3D200F509FD /* MainView.swift in Sources */,
 				293062B12694DCBF0086C5F7 /* data.swift in Sources */,
 				29474E432694FFA000AE0A5A /* EditExpenseView.swift in Sources */,
 				29ADDEAF2694D3D200F509FD /* SceneDelegate.swift in Sources */,
+				299E0F5B269A17DE00BF7AD4 /* EditBudgetViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

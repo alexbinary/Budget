@@ -40,6 +40,21 @@ class DataStore: ObservableObject {
         self.dataModel!.expenses.remove(atOffsets: offsets)
         self.persistDataModelToStorage()
     }
+    
+    
+    public func save(_ budget: Budget) {
+        
+        if let idx = self.dataModel!.budgets.firstIndex(where: { $0.id == budget.id }) {
+            
+            self.dataModel!.budgets[idx] = budget
+            
+        } else {
+            
+            self.dataModel!.budgets.append(budget)
+        }
+        
+        self.persistDataModelToStorage()
+    }
 }
 
 

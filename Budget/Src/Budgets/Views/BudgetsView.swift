@@ -8,6 +8,8 @@ struct BudgetsView: View {
     
     @EnvironmentObject var dataStore: DataStore
     
+    @State var editViewIsPresented: Bool = false
+    
     
     var body: some View {
 
@@ -15,8 +17,8 @@ struct BudgetsView: View {
         
             Group {
             
-                let categories = dataStore.dataModel?.budgets ?? []
-                if categories.isEmpty {
+                let budgets = dataStore.dataModel?.budgets ?? []
+                if budgets.isEmpty {
                 
                     Text("No budgets")
                     
@@ -24,9 +26,17 @@ struct BudgetsView: View {
                     
                     List {
                         
-                        ForEach(categories) { category in
+                        ForEach(budgets) { budget in
                             
-                            Text(category.name)
+                            NavigationLink(
+                                destination: EditBudgetView(
+                                    budgetId: budget.id,
+                                    budgetViewModel: EditBudgetViewModel(from: budget)
+                                ),
+                                label: {
+                                    Text(budget.name)
+                                }
+                            )
                         }
                     }
                 }
@@ -34,9 +44,22 @@ struct BudgetsView: View {
                 .navigationTitle("Budgets")
                 .navigationBarItems(trailing:
                     HStack {
-                        
+                        Button(action: {
+                            self.editViewIsPresented = true
+                        }, label: {
+                            Image(systemName: "plus")
+                        })
                     }
                 )
+                .sheet(isPresented: self.$editViewIsPresented) {
+                    
+                    NavigationView {
+                        EditBudgetView(
+                            budgetId: nil,
+                            budgetViewModel: EditBudgetViewModel.empty
+                        )
+                    }
+                }
         }
     }
 }
