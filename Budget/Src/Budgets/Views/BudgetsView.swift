@@ -38,12 +38,17 @@ struct BudgetsView: View {
                                 }
                             )
                         }
+                        .onDelete { indexSet in
+                         
+                            self.dataStore.removeBudget(atOffsets: indexSet)
+                        }
                     }
                 }
             }
                 .navigationTitle("Budgets")
                 .navigationBarItems(trailing:
                     HStack {
+                        EditButton()
                         Button(action: {
                             self.editViewIsPresented = true
                         }, label: {

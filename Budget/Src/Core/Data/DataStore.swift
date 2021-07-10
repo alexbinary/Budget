@@ -55,6 +55,13 @@ class DataStore: ObservableObject {
         
         self.persistDataModelToStorage()
     }
+    
+    
+    public func removeBudget(atOffsets offsets: IndexSet) {
+        
+        self.dataModel!.budgets.remove(atOffsets: offsets)
+        self.persistDataModelToStorage()
+    }
 }
 
 
