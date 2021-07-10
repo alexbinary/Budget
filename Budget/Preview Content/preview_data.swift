@@ -3,7 +3,7 @@ import Foundation
 
 
 
-let preview_expenseCategory_default = Budget(id: UUID(), name: "Category 1")
+let preview_budget_default = Budget(id: UUID(), name: "Budget test")
 
 
 let preview_dataModel_empty = DataModel(expenses: [])
@@ -39,9 +39,9 @@ let preview_dataModel_default = DataModel(
     
     budgets: [
     
-        Budget(id: UUID(), name: "Category 1"),
-        Budget(id: UUID(), name: "Category 2"),
-        Budget(id: UUID(), name: "Category 3")
+        Budget(id: UUID(), name: "Budget 1"),
+        Budget(id: UUID(), name: "Budget 2"),
+        Budget(id: UUID(), name: "Budget 3")
     ]
 )
 
