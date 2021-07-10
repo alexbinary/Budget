@@ -36,9 +36,9 @@ struct EditExpenseViewModel {
         
         return Expense(
             id: id,
-            date: date,
+            date: self.date,
             amount: amountNumeric * (direction == .goingOut ? -1 : +1),
-            label: label.isEmpty ? nil : label
+            label: self.label.isEmpty ? nil : self.label
         )
     }
 }
