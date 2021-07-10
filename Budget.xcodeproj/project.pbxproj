@@ -15,8 +15,8 @@
 		2968359D2695A74100DA0337 /* EditExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2968359C2695A74100DA0337 /* EditExpenseViewModel.swift */; };
 		296835A22695A7E100DA0337 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296835A12695A7E100DA0337 /* Expense.swift */; };
 		296835A72695A95D00DA0337 /* ShowExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296835A62695A95D00DA0337 /* ShowExpenseViewModel.swift */; };
-		296835AB2695B64F00DA0337 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296835AA2695B64F00DA0337 /* ExpenseCategory.swift */; };
-		296835AE2695B72100DA0337 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296835AD2695B72100DA0337 /* CategoriesView.swift */; };
+		296835AB2695B64F00DA0337 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296835AA2695B64F00DA0337 /* Budget.swift */; };
+		296835AE2695B72100DA0337 /* BudgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296835AD2695B72100DA0337 /* BudgetsView.swift */; };
 		29ADDEAD2694D3D200F509FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEAC2694D3D200F509FD /* AppDelegate.swift */; };
 		29ADDEAF2694D3D200F509FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEAE2694D3D200F509FD /* SceneDelegate.swift */; };
 		29ADDEB32694D3D200F509FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEB22694D3D200F509FD /* MainView.swift */; };
@@ -35,8 +35,8 @@
 		2968359C2695A74100DA0337 /* EditExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenseViewModel.swift; sourceTree = "<group>"; };
 		296835A12695A7E100DA0337 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		296835A62695A95D00DA0337 /* ShowExpenseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowExpenseViewModel.swift; sourceTree = "<group>"; };
-		296835AA2695B64F00DA0337 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
-		296835AD2695B72100DA0337 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		296835AA2695B64F00DA0337 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		296835AD2695B72100DA0337 /* BudgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsView.swift; sourceTree = "<group>"; };
 		29ADDEA92694D3D200F509FD /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29ADDEAC2694D3D200F509FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29ADDEAE2694D3D200F509FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			children = (
 				29ADDEC92694D49400F509FD /* DataModel.swift */,
 				296835A12695A7E100DA0337 /* Expense.swift */,
-				296835AA2695B64F00DA0337 /* ExpenseCategory.swift */,
+				296835AA2695B64F00DA0337 /* Budget.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 				29ADDEB22694D3D200F509FD /* MainView.swift */,
 				293062A52694D64E0086C5F7 /* ExpensesView.swift */,
 				29474E422694FFA000AE0A5A /* EditExpenseView.swift */,
-				296835AD2695B72100DA0337 /* CategoriesView.swift */,
+				296835AD2695B72100DA0337 /* BudgetsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,9 +223,9 @@
 				293062A62694D64E0086C5F7 /* ExpensesView.swift in Sources */,
 				29ADDEAD2694D3D200F509FD /* AppDelegate.swift in Sources */,
 				293062B42694DCFA0086C5F7 /* preview_data.swift in Sources */,
-				296835AB2695B64F00DA0337 /* ExpenseCategory.swift in Sources */,
+				296835AB2695B64F00DA0337 /* Budget.swift in Sources */,
 				29ADDEC62694D47900F509FD /* DataStore.swift in Sources */,
-				296835AE2695B72100DA0337 /* CategoriesView.swift in Sources */,
+				296835AE2695B72100DA0337 /* BudgetsView.swift in Sources */,
 				2968359D2695A74100DA0337 /* EditExpenseViewModel.swift in Sources */,
 				296835A72695A95D00DA0337 /* ShowExpenseViewModel.swift in Sources */,
 				29ADDEB32694D3D200F509FD /* MainView.swift in Sources */,

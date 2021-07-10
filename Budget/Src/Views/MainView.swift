@@ -15,10 +15,10 @@ struct MainView: View {
                     Text("Expenses")
                 }
             
-            CategoriesView()
+            BudgetsView()
                 .tabItem {
                     Image(systemName: "list.dash")
-                    Text("Categories")
+                    Text("Budgets")
                 }
         }
     }

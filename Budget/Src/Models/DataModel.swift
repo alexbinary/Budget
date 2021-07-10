@@ -8,5 +8,5 @@ struct DataModel: Codable {
     
     var expenses: [Expense] = []
     
-    var categories: [ExpenseCategory] = []
+    var budgets: [Budget] = []
 }

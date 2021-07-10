@@ -3,7 +3,7 @@ import Foundation
 
 
 
-struct ExpenseCategory: Codable, Identifiable {
+struct Budget: Codable, Identifiable {
     
     
     let id: UUID

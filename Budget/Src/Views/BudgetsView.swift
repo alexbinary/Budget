@@ -18,7 +18,7 @@ struct BudgetsView: View {
                 let categories = dataStore.dataModel?.budgets ?? []
                 if categories.isEmpty {
                 
-                    Text("No categories")
+                    Text("No budgets")
                     
                 } else {
                     
@@ -31,7 +31,7 @@ struct BudgetsView: View {
                     }
                 }
             }
-                .navigationTitle("Categories")
+                .navigationTitle("Budgets")
                 .navigationBarItems(trailing:
                     HStack {
                         
@@ -43,7 +43,7 @@ struct BudgetsView: View {
 
 
 
-struct CategoriesView_Previews: PreviewProvider {
+struct BudgetsView_Previews: PreviewProvider {
 
     static var previews: some View {
 
