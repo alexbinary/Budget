@@ -35,6 +35,26 @@ struct EditBudgetView: View {
                     .keyboardType(.decimalPad)
                     .font(.custom("", size: 42))
             }
+            
+            if let budget = self.dataStore.dataModel!.budgets.first(where: { $0.id == self.budgetId }) {
+             
+                Section(header: Text("Last expenses in this budget")) {
+                
+                    let expenses = self.dataStore.dataModel!.lastExpenses(in: budget)
+                    if expenses.isEmpty {
+                        
+                        Text("no expenses")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+            
+                    } else {
+                        
+                        ForEach(expenses) { expense in
+                            ExpenseListItemView(expense: expense)
+                        }
+                    }
+                }
+            }
         }
             .navigationTitle(mode == .add ? "New budget" : budgetViewModel.name.isEmpty ? "Edit budget" : budgetViewModel.name)
             .navigationBarItems(

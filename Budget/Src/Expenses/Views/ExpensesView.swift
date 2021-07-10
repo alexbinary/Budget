@@ -11,17 +11,6 @@ struct ExpensesView: View {
     @State var editViewIsPresented: Bool = false
     
     
-    private func format(_ date: Date) -> String {
-       
-        let formatter = DateFormatter()
-        
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-        
-        return formatter.string(from: date)
-    }
-    
-    
     var body: some View {
         
         NavigationView {
@@ -40,28 +29,13 @@ struct ExpensesView: View {
                         
                         ForEach(expenses.sorted(by: { $0.date > $1.date })) { expense in
                             
-                            let expenseViewModel = ShowExpenseViewModel(from: expense)
-                            
                             NavigationLink(
                                 destination: EditExpenseView(
                                     expenseId: expense.id,
                                     expenseViewModel: EditExpenseViewModel(from: expense)
                                 ),
                                 label: {
-                                    HStack {
-                                        VStack(alignment: .leading) {
-                                            Text(format(expenseViewModel.date))
-                                                .font(.callout)
-                                            Text(expenseViewModel.label.isEmpty ? "no description" : expenseViewModel.label)
-                                                .font(.caption)
-                                                .italic(expenseViewModel.label.isEmpty)
-                                                .foregroundColor(expenseViewModel.label.isEmpty ? .secondary : .primary)
-                                        }
-                                        Spacer()
-                                        Text(Formatter.format(currency: expenseViewModel.amount))
-                                            .font(.headline)
-                                            .foregroundColor(expenseViewModel.isGoingOut ? .red : .green)
-                                    }
+                                    ExpenseListItemView(expense: expense)
                                 }
                             )
                         }

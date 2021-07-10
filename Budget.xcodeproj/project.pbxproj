@@ -27,6 +27,7 @@
 		29ADDEC62694D47900F509FD /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEC52694D47900F509FD /* DataStore.swift */; };
 		29ADDECA2694D49400F509FD /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ADDEC92694D49400F509FD /* DataModel.swift */; };
 		29DC04B2269A2912004201C4 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC04B1269A2912004201C4 /* Formatter.swift */; };
+		29DC04B7269A2BA2004201C4 /* ExpenseListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC04B6269A2BA2004201C4 /* ExpenseListItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		29ADDEC52694D47900F509FD /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		29ADDEC92694D49400F509FD /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		29DC04B1269A2912004201C4 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		29DC04B6269A2BA2004201C4 /* ExpenseListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				293062A52694D64E0086C5F7 /* ExpensesView.swift */,
+				29DC04B6269A2BA2004201C4 /* ExpenseListItemView.swift */,
 				29474E422694FFA000AE0A5A /* EditExpenseView.swift */,
 			);
 			path = Views;
@@ -312,6 +315,7 @@
 				299E0F57269A179500BF7AD4 /* EditBudgetView.swift in Sources */,
 				29DC04B2269A2912004201C4 /* Formatter.swift in Sources */,
 				29ADDEB32694D3D200F509FD /* MainView.swift in Sources */,
+				29DC04B7269A2BA2004201C4 /* ExpenseListItemView.swift in Sources */,
 				293062B12694DCBF0086C5F7 /* data.swift in Sources */,
 				29474E432694FFA000AE0A5A /* EditExpenseView.swift in Sources */,
 				29ADDEAF2694D3D200F509FD /* SceneDelegate.swift in Sources */,
