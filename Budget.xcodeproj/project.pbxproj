@@ -59,23 +59,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2968359B2695A72A00DA0337 /* Models */ = {
+		296835A02695A7C600DA0337 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				29ADDEC92694D49400F509FD /* DataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		299E0F4D269A16A100BF7AD4 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				299E0F4E269A16B000BF7AD4 /* Models */,
+				299E0F50269A16D400BF7AD4 /* ViewModels */,
+				299E0F4F269A16BC00BF7AD4 /* Views */,
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		299E0F4E269A16B000BF7AD4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				296835A12695A7E100DA0337 /* Expense.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		299E0F4F269A16BC00BF7AD4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				293062A52694D64E0086C5F7 /* ExpensesView.swift */,
+				29474E422694FFA000AE0A5A /* EditExpenseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		299E0F50269A16D400BF7AD4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				296835A62695A95D00DA0337 /* ShowExpenseViewModel.swift */,
 				2968359C2695A74100DA0337 /* EditExpenseViewModel.swift */,
 			);
-			path = Models;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		296835A02695A7C600DA0337 /* Models */ = {
+		299E0F51269A16F500BF7AD4 /* Budgets */ = {
 			isa = PBXGroup;
 			children = (
-				29ADDEC92694D49400F509FD /* DataModel.swift */,
-				296835A12695A7E100DA0337 /* Expense.swift */,
+				299E0F52269A170400BF7AD4 /* Models */,
+				299E0F53269A171400BF7AD4 /* Views */,
+			);
+			path = Budgets;
+			sourceTree = "<group>";
+		};
+		299E0F52269A170400BF7AD4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				296835AA2695B64F00DA0337 /* Budget.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		299E0F53269A171400BF7AD4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				296835AD2695B72100DA0337 /* BudgetsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		299E0F54269A172700BF7AD4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				29ADDEC82694D48200F509FD /* Data */,
+				296835A02695A7C600DA0337 /* Models */,
+				29ADDECF2694D4B600F509FD /* Views */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		29ADDEA02694D3D200F509FD = {
@@ -120,9 +180,10 @@
 			children = (
 				29ADDEAC2694D3D200F509FD /* AppDelegate.swift */,
 				29ADDEAE2694D3D200F509FD /* SceneDelegate.swift */,
-				29ADDEC82694D48200F509FD /* Data */,
-				296835A02695A7C600DA0337 /* Models */,
-				29ADDECF2694D4B600F509FD /* Views */,
+				293062B02694DCBF0086C5F7 /* data.swift */,
+				299E0F54269A172700BF7AD4 /* Core */,
+				299E0F4D269A16A100BF7AD4 /* Expenses */,
+				299E0F51269A16F500BF7AD4 /* Budgets */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -131,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				29ADDEC52694D47900F509FD /* DataStore.swift */,
-				293062B02694DCBF0086C5F7 /* data.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -139,11 +199,7 @@
 		29ADDECF2694D4B600F509FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2968359B2695A72A00DA0337 /* Models */,
 				29ADDEB22694D3D200F509FD /* MainView.swift */,
-				293062A52694D64E0086C5F7 /* ExpensesView.swift */,
-				29474E422694FFA000AE0A5A /* EditExpenseView.swift */,
-				296835AD2695B72100DA0337 /* BudgetsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
