@@ -46,14 +46,14 @@ struct EditExpenseView: View {
         .navigationTitle(mode == .add ? "New expense" : expenseViewModel.label.isEmpty ? "Edit expense" : expenseViewModel.label)
         .navigationBarItems(
             leading:
-                mode == .add ? HStack {
+                self.mode == .add ? HStack {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Cancel")
                             .fontWeight(.regular)
                     })
-            } : nil,
+                } : nil,
             trailing:
                 HStack {
                     Button(action: {
