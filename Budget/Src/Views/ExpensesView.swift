@@ -132,11 +132,10 @@ struct ExpensesView_Previews: PreviewProvider {
         
             ExpensesView()
                 .environmentObject(preview_dataStore_defaultModel as DataStore)
-                .previewDisplayName("Default model")
             
             ExpensesView()
                 .environmentObject(preview_dataStore_emptyModel as DataStore)
-                .previewDisplayName("Empty model")
+                .previewDisplayName("Empty")
         }
     }
 }

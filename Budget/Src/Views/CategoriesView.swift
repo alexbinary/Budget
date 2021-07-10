@@ -46,11 +46,10 @@ struct CategoriesView_Previews: PreviewProvider {
         
             CategoriesView()
                 .environmentObject(preview_dataStore_defaultModel as DataStore)
-                .previewDisplayName("Default model")
             
             CategoriesView()
                 .environmentObject(preview_dataStore_emptyModel as DataStore)
-                .previewDisplayName("Empty model")
+                .previewDisplayName("Empty")
         }
     }
 }
