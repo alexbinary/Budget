@@ -38,9 +38,10 @@ struct ExpensesView: View {
         
         NavigationView {
             
+            let expenses = dataStore.dataModel?.expenses ?? []
+            
             Group {
             
-                let expenses = dataStore.dataModel?.expenses ?? []
                 if expenses.isEmpty {
                 
                     Text("No expenses")
@@ -86,7 +87,7 @@ struct ExpensesView: View {
                 .navigationTitle("Expenses")
                 .navigationBarItems(trailing:
                     HStack {
-                        EditButton()
+                        expenses.isEmpty ? nil : EditButton()
                         Button(action: {
                             
                             self.editViewIsPresented = true
