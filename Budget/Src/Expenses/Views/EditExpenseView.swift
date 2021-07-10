@@ -42,6 +42,16 @@ struct EditExpenseView: View {
                 TextField("Label", text: $expenseViewModel.label)
                 DatePicker("Date", selection: $expenseViewModel.date)
             }
+            Section {
+                Picker("Budget", selection: $expenseViewModel.budget) {
+                    
+                    let budgetChoices = [nil].appending(contentsOf: self.dataStore.dataModel!.budgets.map({ Optional($0) }))
+                    
+                    ForEach(budgetChoices, id: \.self) { budget in
+                        Text(budget?.name ?? "No budget")
+                    }
+                }
+            }
         }
         .navigationTitle(mode == .add ? "New expense" : expenseViewModel.label.isEmpty ? "Edit expense" : expenseViewModel.label)
         .navigationBarItems(
@@ -73,6 +83,20 @@ struct EditExpenseView: View {
         .alert(isPresented: $invalidAmountAlertIsPresented) {
             Alert(title: Text("Invalid amount"))
         }
+    }
+}
+
+
+
+extension Array {
+    
+    
+    public func appending<S>(contentsOf newElements: S) -> Array where Element == S.Element, S : Sequence {
+        
+        var a = self
+        a.append(contentsOf: newElements)
+        
+        return a
     }
 }
 

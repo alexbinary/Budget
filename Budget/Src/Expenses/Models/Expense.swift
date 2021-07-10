@@ -14,13 +14,16 @@ struct Expense: Codable, Identifiable {
     var direction: ExpenseDirection { amount < 0 ? .goingOut : .comingIn }
     var isGoingOut: Bool { direction == .goingOut }
     
+    var budget: Budget?
     
-    init(id: UUID? = nil, date: Date, amount: Double, label: String? = nil) {
+    
+    init(id: UUID? = nil, date: Date, amount: Double, label: String? = nil, budget: Budget? = nil) {
         
         self.id = id ?? UUID()
         self.date = date
         self.amount = amount
         self.label = label
+        self.budget = budget
     }
 }
 

@@ -3,7 +3,7 @@ import Foundation
 
 
 
-struct Budget: Codable, Identifiable {
+struct Budget: Codable, Identifiable, Hashable {
     
     
     let id: UUID
