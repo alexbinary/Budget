@@ -51,6 +51,13 @@ struct EditExpenseView: View {
                         Text(budget?.name ?? "No budget")
                     }
                 }
+                
+                if let budget = expenseViewModel.budget,
+                   let amount = budget.amount {
+                    
+                    Text(Formatter.format(currency: amount))
+                        .font(.headline)
+                }
             }
         }
         .navigationTitle(mode == .add ? "New expense" : expenseViewModel.label.isEmpty ? "Edit expense" : expenseViewModel.label)
